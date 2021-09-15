@@ -1,0 +1,57 @@
+<h1 *ngIf="!cartitems.length">cart is empty</h1>
+<div class="main-content" *ngIf="cartitems.length">
+    
+  <div class="section-content section-content-p30">
+      <div class="container-fluid">
+
+          <div>
+
+
+              <table class="table table-bordered">
+
+                  
+                     
+                      <tr >Product Detail</tr>
+                      <tr >
+                        <th > Serial No.</th>
+                        <th > Brand</th>
+                        <th  > Model Name</th>
+                        <th > Cost</th>
+                        
+                        <th> Action</th>
+                        <th> Action</th>
+                  </tr>
+
+
+                  <tr *ngFor="let Cart of cartitems">
+                    <td>{{Cart.serialno}} </td>
+                    <td>{{Cart.publisher}}</td>
+                    <td>{{Cart.name}}</td>
+                    <td>{{Cart.cost}}</td>
+                    
+                     <td><button class="btn btn-primary">Proceed</button></td>
+                     <button class="btn btn-danger" (click)="Remove( Cart)">Remove</button>
+ 
+                      
+                  </tr>
+
+                  <tr>
+                      <td colspan="2"></td>
+                      <td style="font-weight: bold">
+                          
+                          <p>Shipping: FREE</p>
+                          
+                          <a  class="btn btn-primary">Checkout</a>
+                      </td>
+                  </tr>
+
+              </table>
+
+          </div>
+
+          <!-- if cart is empty then display a message-->
+        
+
+      </div>
+  </div>
+</div>

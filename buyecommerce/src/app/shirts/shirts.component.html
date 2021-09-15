@@ -1,0 +1,55 @@
+<div class="container ">
+   <div class="form-group col-sm-2">
+      <input  typr="text" class="form-control input-sm" placeholder="Search" [(ngModel)]="searchedKeyword">
+      
+    </div>
+    <button class="btn btn-primary" type="submit">Search</button>
+  <div class="row">
+ <div class="innercard"  *ngFor="let c of posts |filter:searchedKeyword | paginate :
+ {
+ itemsPerPage:2,
+ currentPage:page,
+ totalitems:totallength
+ 
+ } 
+ " class="col-md-4" >
+ 
+ <mat-card >
+ 
+  <mat-card-header>
+     <div mat-card-avatar></div>
+     <mat-card-title>Category : Shirt </mat-card-title>
+     <mat-card-subtitle> Brand :{{c.publisher}} </mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src = {{c.shirtimage}} alt = "Learn HTML5" style="height: 300px;">
+ 
+  <mat-card-actions>
+     <button class="btn btn-outline-warning" (click)="imagedetails()">view</button>&nbsp;&nbsp;&nbsp;
+     <button class="btn btn-outline-success" (click)="addshirtscart(c,c.serialno)">Add-to-cart</button>
+ 
+  </mat-card-actions>
+  <mat-card-content>
+    <div >
+     <h3> Brand : {{c.publisher}}</h3>
+     <h3> Model : {{c.name}}</h3>
+    <h3>Cost : {{c.cost}}</h3> 
+ </div>
+  </mat-card-content>
+ </mat-card>
+ 
+ 
+ <br/>
+ <br/>
+ </div>
+ </div>
+ <div class="pagination">
+ <pagination-controls  (pageChange)="page=$event" (pageChange)="changeimgview()"></pagination-controls></div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </div>
